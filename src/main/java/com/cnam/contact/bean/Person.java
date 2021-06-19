@@ -24,7 +24,7 @@ public class Person {
     @Basic @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Basic @Column
+    @Basic @Column(name = "birthdate")
     private Date birthdate;
 
     @Override
