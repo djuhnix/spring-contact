@@ -18,7 +18,7 @@ public class User extends Person {
     @Basic @Column(name = "username", nullable = false)
     private String username;
 
-    @Basic @Column(name = "password_hash", nullable = false)
+    @Basic @Column(name = "password", nullable = false)
     private String passwordHash;
 
     @Basic @Column(name = "salt", nullable = false)

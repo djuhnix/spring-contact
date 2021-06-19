@@ -14,8 +14,14 @@ import javax.persistence.*;
 @ToString
 @RequiredArgsConstructor
 public class Contact extends Person {
-    @Basic @Column
-    private String phone;
+    @Basic @Column(name="phone_number")
+    private String phoneNumber;
+
+    /*
+    @Basic @Column(name="mail")
+    private String mail;
+    */
+
     @ManyToOne
     private User user;
 }

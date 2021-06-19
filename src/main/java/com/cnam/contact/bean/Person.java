@@ -24,8 +24,11 @@ public class Person {
     @Basic @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Basic @Column(name = "birthdate")
-    private Date birthdate;
+    @Basic @Column(name = "birth_date")
+    private Date birthDate;
+
+    @Basic @Column(name="gender")
+    private String gender;
 
     @Override
     public boolean equals(Object o) {
