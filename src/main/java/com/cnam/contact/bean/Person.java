@@ -4,6 +4,8 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 
@@ -16,16 +18,18 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    protected Long id;
 
     @Basic @Column(name = "first_name", nullable = false)
-    private String firstName;
+    @NotNull @NotEmpty
+    protected String firstName;
 
     @Basic @Column(name = "last_name", nullable = false)
-    private String lastName;
+    @NotNull @NotEmpty
+    protected String lastName;
 
     @Basic @Column(name = "birth_date")
-    private Date birthDate;
+    protected Date birthDate;
 
     @Basic @Column(name="gender")
     private String gender;

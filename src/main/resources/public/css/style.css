@@ -440,6 +440,16 @@ margin-top: 5px;
     margin-bottom:15px;
 }
 
+#successmessage {
+    color: green;
+    border:1px solid green;
+    display:none;
+    text-align:center;
+    padding:15px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
 #errormessage {
     color: red;
     display:none;

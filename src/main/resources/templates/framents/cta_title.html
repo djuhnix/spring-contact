@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      class="js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head><title>CTA Title</title></head>
+<body>
+<!--CTA1 START-->
+<div th:fragment="cta_1 (title, subtitle)" class="cta-1">
+  <div class="container">
+    <div class="row text-center white">
+      <h1 th:incluce="${title}" class="cta-title">Say Hey to Tempo!!</h1>
+      <p th:incluce="${subtitle}" class="cta-sub-title">Full Responsive HTML5 Bootstrap Template.</p>
+    </div>
+  </div>
+</div>
+<!--CTA1 END-->
+
+<!--CTA2 START-->
+<div th:fragment="cta_2 (title, subtitle, link, linkText)" class="cta2">
+  <div class="container">
+    <div class="row white text-center">
+      <h3 th:incluce="${title}" class="wd75 fnt-24">“Every Thing is designed. Few Things are Designed well.” - Brian Reed</h3>
+      <p th:incluce="${subtitle}" class="cta-sub-title"></p>
+      <a th:href="${link}" th:text="${linkText}" class="btn btn-default">Request A Quote</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<!--CTA2 END-->

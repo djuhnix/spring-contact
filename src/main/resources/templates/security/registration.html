@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{base :: layout(~{::title}, ~{::section})}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration | Contact</title>
+</head>
+<body>
+    <!--
+    <section th:replace="~{framents/cta_title :: cta_1 ('Inscription', 'Entrer vos informations')}">
+    </section>
+    -->
+    <section>
+        <!--REGISTRATION START-->
+        <div id="contact" class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="page-title text-center">
+                        <h1>Inscription</h1>
+                        <p>Entrer vos informations. </p>
+                        <hr class="pg-titl-bdr-btm"/>
+                    </div>
+                    <div id="successmessage">Inscription envoyé!</div>
+                    <div id="errormessage"></div>
+
+                    <div class="form-sec">
+                        <form action="/" th:action="@{/registration}" th:object="${user}" method="post" role="form" class="contactForm">
+                            <div class="col-md-4 form-group">
+                                <label for="firstName">Firstname</label>
+                                <input th:field="*{user.firstName}" type="text" name="firstName" class="form-control text-field-box" id="firstName" placeholder="Votre prénom" data-rule="minlen:4" data-msg="Taper au moins 4 lettre" />
+
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="col-md-4 form-group">
+                                <label for="lastName">Firstname</label>
+                                <input th:field="*{user.lastName}" type="text" name="lastName" class="form-control text-field-box" id="lastName" placeholder="Votre nom" data-rule="minlen:4" data-msg="Taper au moins 4 lettre" />
+
+                                <div class="validation"></div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control text-field-box" name="username" id="username" placeholder="Votre nom d'utilisateur" data-rule="minlen:4" data-msg="Taper au moins 4 lettre" />
+
+                                <div class="validation"></div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label for="password">Mot de passe</label>
+                                <input th:field="*{user.password}" type="password" class="form-control text-field-box" name="password" id="password" placeholder="Votre mot de passe" data-rule="minlen:8" data-msg="Au moins 4 lettres dans votre mot de passe." />
+
+                                <div class="validation"></div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label for="password-repeat">Confirmation de mot de passe</label>
+                                <input th:field="*{user.matchingPassword}" type="password" class="form-control text-field-box" name="password-repeat" id="password-repeat" placeholder="Votre mot de passe" data-rule="minlen:8" data-msg="Au moins 4 lettres dans votre mot de passe." />
+
+                                <div class="validation"></div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label>
+                                    <textarea class="form-control text-field-box" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                </label>
+                                <div class="validation"></div>
+
+                                <button class="button-medium" id="submit" type="submit" name="registration">S'inscrire</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--REGISTRATION END-->
+    </section>
+</body>
+</html>
