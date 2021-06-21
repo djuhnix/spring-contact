@@ -17,7 +17,6 @@ import java.util.*;
 @DiscriminatorValue("user")
 @Getter @Setter @ToString
 @RequiredArgsConstructor
-@NoArgsConstructor
 @PasswordMatches
 public class User extends Person implements UserDetails {
     @Transient
@@ -30,7 +29,7 @@ public class User extends Person implements UserDetails {
     @NotNull @NotEmpty
     private String username;
 
-    @Basic @Column(name = "password", nullable = false)
+    @Basic @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
     @Basic @Column(name = "salt", nullable = false)
@@ -44,11 +43,9 @@ public class User extends Person implements UserDetails {
     @ToString.Exclude
     private List<Role> roles;
 
-    @Builder.Default
     @Basic @Column(name = "locked")
     private Boolean locked = false;
 
-    @Builder.Default
     @Basic @Column(name = "enabled")
     private Boolean enabled = false;
 

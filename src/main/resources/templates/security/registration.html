@@ -25,22 +25,22 @@
                     <div id="errormessage"></div>
 
                     <div class="form-sec">
-                        <form action="/" th:action="@{/registration}" th:object="${user}" method="post" role="form" class="contactForm">
+                        <form action="/" th:action="@{/registration}" method="post" role="form" class="contactForm">
                             <div class="col-md-4 form-group">
-                                <label for="firstName">Firstname</label>
+                                <label for="firstName">Prénom</label>
                                 <input th:field="*{user.firstName}" type="text" name="firstName" class="form-control text-field-box" id="firstName" placeholder="Votre prénom" data-rule="minlen:4" data-msg="Taper au moins 4 lettre" />
 
                                 <div class="validation"></div>
                             </div>
 
                             <div class="col-md-4 form-group">
-                                <label for="lastName">Firstname</label>
+                                <label for="lastName">Nom</label>
                                 <input th:field="*{user.lastName}" type="text" name="lastName" class="form-control text-field-box" id="lastName" placeholder="Votre nom" data-rule="minlen:4" data-msg="Taper au moins 4 lettre" />
 
                                 <div class="validation"></div>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label for="username">Username</label>
+                                <label for="username">Nom d'utilisateur</label>
                                 <input type="text" class="form-control text-field-box" name="username" id="username" placeholder="Votre nom d'utilisateur" data-rule="minlen:4" data-msg="Taper au moins 4 lettre" />
 
                                 <div class="validation"></div>
@@ -58,11 +58,6 @@
                                 <div class="validation"></div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <label>
-                                    <textarea class="form-control text-field-box" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                                </label>
-                                <div class="validation"></div>
-
                                 <button class="button-medium" id="submit" type="submit" name="registration">S'inscrire</button>
                             </div>
                         </form>
