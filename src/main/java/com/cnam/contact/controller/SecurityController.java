@@ -111,6 +111,6 @@ public class SecurityController {
         }
 
         // rest of the implementation
-        return new ModelAndView("home", "user", newUser);
+        return new ModelAndView("redirect:contact", "user", newUser);
     }
 }
