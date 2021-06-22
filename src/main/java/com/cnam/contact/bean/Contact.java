@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Contact extends Person {
     @Basic @Column(name="phone_number")
+    @NotNull @NotEmpty
     private String phoneNumber;
 
     @ManyToMany

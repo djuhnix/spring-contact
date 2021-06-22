@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,8 @@ public class Mail {
     @Basic @Column(name="id", nullable=false)
     private Long id;
 
-    @Column(name="email")
+    @Basic @Column(name="email")
+    @Email
     private String email;
 
     @ManyToOne

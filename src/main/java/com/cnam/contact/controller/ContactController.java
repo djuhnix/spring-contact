@@ -11,11 +11,13 @@ import com.cnam.contact.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 /*import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;*/
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -41,7 +43,7 @@ public class ContactController {
         this.addressRepository = addressRepository;
     }
 
-    @GetMapping("")
+    @GetMapping
     public String contact(Model model) {
         List<Contact> contacts = contactRepository.getAllByUser(userService.getLoggedUser());
         model.addAttribute(contacts);
@@ -71,9 +73,13 @@ public class ContactController {
     @PostMapping("/add")
     public String addContact(@ModelAttribute("contact") Contact contact) {
         String root = "contact/add";
+        if (result.hasErrors()) {
+            model.addAttribute("message", "Erreur dans le formulaire.");
+            return root;
+        }
 
         if (contact != null) {
-            boolean b = true;
+            boolean isValid = true;
 
             String regex = "\\b[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b"; //"^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"
             Pattern pattern = Pattern.compile(regex);
@@ -82,7 +88,7 @@ public class ContactController {
             /*for (Mail mail : contact.getMails()) {
                 matcher = pattern.matcher(mail.getEmail());
                 if (!matcher.matches()) {
-                    b = false;
+                    isValid = false;
                 }
             }*/
 
@@ -90,10 +96,10 @@ public class ContactController {
             pattern = Pattern.compile(regex);
             matcher = pattern.matcher(contact.getPhoneNumber());
             if (!matcher.matches()) {
-                b = false;
+                isValid = false;
             }
 
-            if (b) {
+            if (isValid) {
                 contact.setUser(userService.getLoggedUser());
                 contactRepository.save(contact);
 
@@ -106,6 +112,9 @@ public class ContactController {
                 }*/
 
                 root = "redirect:/contact/"+contact.getId();
+            } else {
+                model.addAttribute("message", "Téléphone ou email incorrecte.");
+                return root;
             }
         }
 
