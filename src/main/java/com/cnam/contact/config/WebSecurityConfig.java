@@ -1,6 +1,7 @@
 package com.cnam.contact.config;
 
 import com.cnam.contact.bean.Role;
+import com.cnam.contact.repository.UserRepository;
 import com.cnam.contact.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.StaticResourceLocation;
@@ -26,10 +27,13 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 @EnableWebSecurity
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    /*
-    @Autowired
-    private UserService userService;
-    */
+
+    private final UserRepository userRepository;
+
+    public WebSecurityConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
 
     @Autowired
     public void configure(final AuthenticationManagerBuilder auth) throws Exception {
@@ -95,7 +99,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     protected UserDetailsService userDetailsService() {
-        return new UserService();
+        return new UserService(userRepository, passwordEncoder());
     }
 
     @Bean

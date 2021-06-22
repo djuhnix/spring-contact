@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("contact")
@@ -25,11 +25,11 @@ public class Contact extends Person {
             inverseJoinColumns = @JoinColumn(name = "id_address")
     )
     @ToString.Exclude
-    Set<Address> addresses;
+    List<Address> addresses;
 
     @OneToMany(mappedBy = "contact")
     @ToString.Exclude
-    Set<Mail> mails;
+    List<Mail> mails;
 
     @ManyToOne
     private User user;

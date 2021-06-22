@@ -22,10 +22,13 @@ import java.util.Optional;
 @Service
 @Transactional
 public class UserService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public User registerNewUserAccount(User postUser) throws UserAlreadyExistException {
         if (userExists(postUser.getUsername())) {
