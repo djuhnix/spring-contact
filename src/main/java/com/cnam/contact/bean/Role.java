@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity(name = "role")
 @Getter @Setter @ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 public class Role {
     public enum ROLE {
         ADMIN, USER
@@ -20,7 +21,8 @@ public class Role {
     @Basic @NonNull @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private User user;
 
 }

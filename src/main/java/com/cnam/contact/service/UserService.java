@@ -6,6 +6,7 @@ import com.cnam.contact.bean.User;
 import com.cnam.contact.exception.UserAlreadyExistException;
 import com.cnam.contact.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -60,5 +61,16 @@ public class UserService implements UserDetailsService {
         else {
             throw new UsernameNotFoundException(MessageFormat.format("Aucun utilisateur {0} de trouver.", username));
         }
+    }
+
+    public User getLoggedUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails)principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        return (User)loadUserByUsername(username);
     }
 }
