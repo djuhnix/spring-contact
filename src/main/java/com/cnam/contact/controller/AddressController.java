@@ -35,7 +35,7 @@ public class AddressController {
             @PathVariable(name = "id") Long id
     ) {
         Contact contact = contactRepository.findByIdAndUser(id, userService.getLoggedUser());
-        addressSet = addressRepository.findByContacts(contact);
+        addresses = addressRepository.findByContacts(contact);
         return "address/index";
     }
 }
