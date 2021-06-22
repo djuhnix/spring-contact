@@ -49,11 +49,11 @@
             <div class="col-md-4 form-group">
               <label>Genre :</label>
               <label for="homme">Homme</label>
-              <input th:field="*{gender}" type="radio" name="gender" class="form-control text-field-box" id="homme" value="homme"/>
+              <input th:field="*{gender}" type="radio" name="gender" id="homme" value="homme"/>
               <label for="femme">Femme</label>
-              <input th:field="*{gender}" type="radio" name="gender" class="form-control text-field-box" id="femme" value="femme"/>
+              <input th:field="*{gender}" type="radio" name="gender" id="femme" value="femme"/>
               <label for="autre">Autre</label>
-              <input th:field="*{gender}" type="radio" name="gender" class="form-control text-field-box" id="autre" value="autre"/>
+              <input th:field="*{gender}" type="radio" name="gender" id="autre" value="autre"/>
               <div class="validation"></div>
             </div>
 
@@ -63,12 +63,13 @@
               <div class="validation"></div>
             </div>
 
-            <div class="col-md-4 form-group">
+            <!--<div class="col-md-4 form-group">
               <label for="email">Adresse e-mail</label>
-              <input th:field="*{email}" type="mail" name="email" class="form-control text-field-box" id="email" placeholder="Votre email" />
+              <input th:field="*{email}" type="mail" name="email" class="form-control text-field-box" id="email" placeholder="email" />
               <div class="validation"></div>
-            </div>
+            </div>-->
 
+            <!--
             <div class="col-md-4 form-group">
               <label for="numPath">Numéro de voie</label>
               <input th:field="*{numPath}" type="text" name="numPath" class="form-control text-field-box" id="numPath" placeholder="Numéro de voie" />
@@ -99,6 +100,7 @@
               <div class="validation"></div>
             </div>
             <div class="col-md-12 form-group">
+            <-->
               <button class="button-medium" id="submit" type="submit" name="add">Ajouter</button>
             </div>
           </form>
