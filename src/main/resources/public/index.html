@@ -2,7 +2,7 @@
 <html lang="en" class=" js no-touch">
 
 <head>
-  <title>Tempo | HTML5 Responsive Bootstrap Template</title>
+  <title>Contact-main page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -29,15 +29,39 @@
 			    <span class="icon-bar"></span>
 			    <span class="icon-bar"></span>
 			  </button>
-          <a class="navbar-brand" href="index.html">Tempo</a>
+          <a class="navbar-brand" href="index.html">Contact</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#banner">Home</a></li>
-            <li><a href="#service">Service</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+
             <li><a href="#about">Our Team</a></li>
             <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#service">Sign up</a></li>
+            <li>
+              <div class="dropdown">
+                <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  log in
+                </a>
+                <div class="container dropdown-menu">
+                  <div class="row">
+                    <div class="form-sec">
+                      <form action="" method="post" role="form" class="contactForm">
+                        <div class="col-md-4 form-group dropdown-item">
+                          <input type="text" name="username" class="form-control text-field-box" id="username" placeholder="Username" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <div class="validation"></div>
+                        </div>
+                        <div class="col-md-4 form-group dropdown-item">
+                          <input type="password" name="password" class="form-control text-field-box" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <div class="validation"></div>
+                          <button class="button-medium" id="login" type="submit" name="contact">log in</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -50,9 +74,8 @@
     <div class="container">
       <div class="row">
         <div class="jumbotron">
-          <h1 class="small">Welcome To <span class="bold">Tempo</span></h1>
-          <p class="big">Multipurpose HTML5 Bootstrap template.</p>
-          <a href="#" class="btn btn-banner">Learn More<i class="fa fa-send"></i></a>
+          <h1 class="small">Welcome To <span class="bold">Contact</span></h1>
+          <p class="big">The contact website</p>
         </div>
       </div>
     </div>
@@ -63,8 +86,8 @@
   <div class="cta-1">
     <div class="container">
       <div class="row text-center white">
-        <h1 class="cta-title">Say Hey to Tempo!!</h1>
-        <p class="cta-sub-title">Full Responsive HTML5 Bootstrap Template.</p>
+        <h1 class="cta-title">Say Hey to contact</h1>
+        <p class="cta-sub-title">Full Responsive website</p>
       </div>
     </div>
   </div>
@@ -76,7 +99,7 @@
       <div class="row">
         <div class="page-title text-center">
           <h1>Our Service</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. </p>
+          <p>Nothing, it's just a school project and no one will probably ever read this. <br>There's nothing to see really </p>
           <hr class="pg-titl-bdr-btm"/>
         </div>
         <div class="col-md-4">
@@ -84,7 +107,7 @@
             <div class="service-icon"><i class="fa fa-picture-o"></i></div>
             <div class="service-text">
               <h3>Design</h3>
-              <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+              <p> Just a free template we found, nothing special here neither</p>
             </div>
           </div>
         </div>
@@ -93,7 +116,7 @@
             <div class="service-icon"><i class="fa fa fa-code"></i></div>
             <div class="service-text">
               <h3>Development</h3>
-              <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+              <p> Still reading ? well if you want to lose your time...</p>
             </div>
           </div>
         </div>
@@ -102,7 +125,7 @@
             <div class="service-icon"><i class="fa fa-diamond"></i></div>
             <div class="service-text">
               <h3>Marketing</h3>
-              <p> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+              <p> I don't even know why we kept this part.</p>
             </div>
           </div>
         </div>
@@ -113,8 +136,8 @@
   <div id="portfolio">
     <div class="container">
       <div class="page-title text-center">
-        <h1>Our Privious Works</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. </p>
+        <h1>Our Previous Works</h1>
+        <p>well ask our companies or other teachers<br>with nine projects on the last week I'm sure you can foind something interesting</p>
         <hr class="pg-titl-bdr-btm"/>
       </div>
       <div class="row">
@@ -132,7 +155,7 @@
       <div class="row" id="portfolio-wrapper">
         <div class="col-lg-3 col-md-6 portfolio-item filter-app">
           <a href="">
-            <img src="img/portfolio/app1.jpg" alt="">
+            <img src="images/portfolio/app1.jpg" alt="">
             <div class="details">
               <h4>App 1</h4>
               <span>Alored dono par</span>
@@ -142,7 +165,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-web">
           <a href="">
-            <img src="img/portfolio/web2.jpg" alt="">
+            <img src="images/portfolio/web2.jpg" alt="">
             <div class="details">
               <h4>Web 2</h4>
               <span>Alored dono par</span>
@@ -152,7 +175,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-app">
           <a href="">
-            <img src="img/portfolio/app3.jpg" alt="">
+            <img src="images/portfolio/app3.jpg" alt="">
             <div class="details">
               <h4>App 3</h4>
               <span>Alored dono par</span>
@@ -162,7 +185,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-card">
           <a href="">
-            <img src="img/portfolio/card1.jpg" alt="">
+            <img src="images/portfolio/card1.jpg" alt="">
             <div class="details">
               <h4>Card 1</h4>
               <span>Alored dono par</span>
@@ -172,7 +195,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-card">
           <a href="">
-            <img src="img/portfolio/card2.jpg" alt="">
+            <img src="images/portfolio/card2.jpg" alt="">
             <div class="details">
               <h4>Card 2</h4>
               <span>Alored dono par</span>
@@ -182,7 +205,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-web">
           <a href="">
-            <img src="img/portfolio/web3.jpg" alt="">
+            <img src="images/portfolio/web3.jpg" alt="">
             <div class="details">
               <h4>Web 3</h4>
               <span>Alored dono par</span>
@@ -192,7 +215,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-card">
           <a href="">
-            <img src="img/portfolio/card3.jpg" alt="">
+            <img src="images/portfolio/card3.jpg" alt="">
             <div class="details">
               <h4>Card 3</h4>
               <span>Alored dono par</span>
@@ -202,7 +225,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-app">
           <a href="">
-            <img src="img/portfolio/app2.jpg" alt="">
+            <img src="images/portfolio/app2.jpg" alt="">
             <div class="details">
               <h4>App 2</h4>
               <span>Alored dono par</span>
@@ -212,7 +235,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
           <a href="">
-            <img src="img/portfolio/logo1.jpg" alt="">
+            <img src="images/portfolio/logo1.jpg" alt="">
             <div class="details">
               <h4>Logo 1</h4>
               <span>Alored dono par</span>
@@ -222,7 +245,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
           <a href="">
-            <img src="img/portfolio/logo3.jpg" alt="">
+            <img src="images/portfolio/logo3.jpg" alt="">
             <div class="details">
               <h4>Logo 3</h4>
               <span>Alored dono par</span>
@@ -232,7 +255,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-web">
           <a href="">
-            <img src="img/portfolio/web1.jpg" alt="">
+            <img src="images/portfolio/web1.jpg" alt="">
             <div class="details">
               <h4>Web 1</h4>
               <span>Alored dono par</span>
@@ -242,7 +265,7 @@
 
         <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
           <a href="">
-            <img src="img/portfolio/logo2.jpg" alt="">
+            <img src="images/portfolio/logo2.jpg" alt="">
             <div class="details">
               <h4>Logo 2</h4>
               <span>Alored dono par</span>
@@ -259,24 +282,23 @@
       <div class="row">
         <div class="page-title text-center">
           <h1>Meet Our Team</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. </p>
+          <p>You're still reading ?! <br>Well I think we can at least introduce ourselves.  </p>
           <hr class="pg-titl-bdr-btm"/>
         </div>
         <div class="autoplay">
           <div class="col-md-6">
             <div class="team-info">
               <div class="img-sec">
-                <img src="img/agent1.jpg" class="img-responsive" alt="agent1">
+                <img src="images/agent1.jpg" class="img-responsive" alt="agent1">
               </div>
               <div class="fig-caption">
-                <h3>Haris Brown</h3>
-                <p class="marb-20">Sr. UI Designer</p>
+                <h3>Sébastien Soveaux</h3>
+                <p class="marb-20">Jr web developper</p>
                 <p>Follow me:</p>
                 <ul class="team-social">
-                  <li class="bgblue-dark"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li class="bgred"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  <li class="bgblue-light"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li class="bgblue-dark"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li class="bgblue-light"><a href="https://twitter.com/Collapsus_Fide"><i class="fa fa-twitter"></i></a></li>
+                  <li class="red"><a href="https://www.instagram.com/collapsus_fide/"><i class="fa fa-instagram"></i></a></li>
+                  <li class="bgblue-dark"><a href="https://www.linkedin.com/in/s%C3%A9bastien-soveaux/"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -284,7 +306,7 @@
           <div class="col-md-6">
             <div class="team-info">
               <div class="img-sec">
-                <img src="img/agent2.jpg" class="img-responsive" alt="agent2">
+                <img src="images/agent2.jpg" class="img-responsive" alt="agent2">
               </div>
               <div class="fig-caption">
                 <h3>Emmy Brown</h3>
@@ -302,28 +324,10 @@
           <div class="col-md-6">
             <div class="team-info">
               <div class="img-sec">
-                <img src="img/agent3.jpg" class="img-responsive" alt="agent3">
+                <img src="images/agent3.jpg" class="img-responsive" alt="agent3">
               </div>
               <div class="fig-caption">
                 <h3>Iain Dante</h3>
-                <p class="marb-20">Jr. UI Designer</p>
-                <p>Follow me:</p>
-                <ul class="team-social">
-                  <li class="blue-dark"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li class="red"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  <li class="blue-light"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li class="blue-dark"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="team-info">
-              <div class="img-sec">
-                <img src="img/agent4.jpg" class="img-responsive" alt="agent4">
-              </div>
-              <div class="fig-caption">
-                <h3>Kate Haris</h3>
                 <p class="marb-20">Jr. UI Designer</p>
                 <p>Follow me:</p>
                 <ul class="team-social">
@@ -359,10 +363,10 @@
       <div class="row">
         <div class="page-title text-center">
           <h1>Quick Contact</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. </p>
+          <p>Don't try we didn't implement it <br>and if you read this you probably can already contact us </p>
           <hr class="pg-titl-bdr-btm"/>
         </div>
-        <div id="sendmessage">Your message has been sent. Thank you!</div>
+        <div id="sendmessage">Your message has not been sent. Thank you!</div>
         <div id="errormessage"></div>
 
         <div class="form-sec">

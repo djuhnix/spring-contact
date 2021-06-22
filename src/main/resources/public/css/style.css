@@ -76,6 +76,15 @@ Header
 	padding-bottom: 5px;
 	font-size: 14px;
 }
+
+.dropdown > a{
+	color: #354242;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin: 0px 10px;
+	padding-bottom: 5px;
+	font-size: 14px;
+}
 .nav > li > a
 {
 	padding: 0px;
@@ -524,7 +533,7 @@ margin-top: 5px;
 }
 #banner
 {
-    background: url('../img/banner-bg.jpg') no-repeat;
+    background: url('../images/banner-bg.jpg') no-repeat;
     background-size: cover;
     min-height: 500px;
 }
