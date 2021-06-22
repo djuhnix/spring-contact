@@ -9,20 +9,39 @@
     <link rel="stylesheet" href="css/addressCard">
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="row come-in">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" th:text="${user.username}"></div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-sec">
+                                    <p th:text=" first name ${user.phoneNumber}"></p>
+                                    <p th:text="last name ${user.firstName}"></p>
+                                    <p th:text="${user.lastName}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div th:fragment="contactCard">
         <div class="container-fluid">
             <div class="row come-in">
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each="contacts:${contact}">
                     <div class="panel panel-primary">
-                        <div class="panel-heading" th:text="${contact.user.username}"></div>
+                        <div class="panel-heading" th:text="${contact.firstname} ${contact.lastname}"></div>
                         <div class="panel-body">
                             <div class="dropdown">
                                 <div class="container dropdown-menu">
                                     <div class="row">
                                         <div class="form-sec">
                                             <p th:text="${contact.phoneNumber}"></p>
-                                            <p th:text="${contact.firstName}"></p>
-                                            <p th:text="${contact.lastName}"></p>
+                                            <p th:text="${contact.birthdate}"></p
                                         </div>
                                     </div>
                                 </div>
