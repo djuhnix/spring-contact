@@ -16,7 +16,19 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading" th:text="${contact.user.username}"></div>
                     <div class="panel-body">
-                        <p th:text="${contact.phoneNumber}"></p>
+                        <div class="dropdown">
+                            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${contact.user.username}"</a>
+                            <div class="container dropdown-menu">
+                                <div class="row">
+                                    <div class="form-sec">
+                                        <p th:text="${contact.phoneNumber}"></p>
+                                        <p th:text="${contact.user.first_name}"></p>
+                                        <p th:text="${contact.user.last_name}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
