@@ -43,7 +43,7 @@ public class User extends Person implements UserDetails {
     @ToString.Exclude
     private List<Contact> contacts;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Role> roles;
 
@@ -51,7 +51,7 @@ public class User extends Person implements UserDetails {
     private Boolean locked = false;
 
     @Basic @Column(name = "enabled")
-    private Boolean enabled = false;
+    private Boolean enabled = true;
 
     @Override
     public boolean equals(Object o) {

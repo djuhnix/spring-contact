@@ -7,8 +7,10 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +27,8 @@ import javax.validation.Valid;
 public class SecurityController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/registration")
     public String registration(WebRequest request, Model model) {
@@ -74,7 +78,7 @@ public class SecurityController {
         Authentication auth = SecurityContextHolder.getContext()
                 .getAuthentication();
         try {
-            request.login(user.getUsername(), user.getPassword());
+            request.login(user.getUsername(), passwordEncoder.encode(user.getPassword()));
         } catch (ServletException e) {
             ModelAndView mav = new ModelAndView("security/login");
             mav.addObject("message", "");
@@ -87,9 +91,15 @@ public class SecurityController {
     @PostMapping("/registration")
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") @Valid User user,
+            BindingResult result,
             HttpServletRequest request,
             Errors errors
     ) {
+        if (result.hasErrors()) {
+            ModelAndView mav = new ModelAndView("security/registration");
+            mav.addObject("message", "Formulaire non valide.");
+            return mav;
+        }
         User newUser;
         System.out.println(user);
         try {

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue("contact")
@@ -17,10 +18,23 @@ public class Contact extends Person {
     @Basic @Column(name="phone_number")
     private String phoneNumber;
 
-    /*
-    @Basic @Column(name="mail")
-    private String mail;
-    */
+    @ManyToMany
+    @JoinTable(
+            name = "contact_address",
+            joinColumns = @JoinColumn(name = "id_contact"),
+            inverseJoinColumns = @JoinColumn(name = "id_address")
+    )
+    @ToString.Exclude
+    Set<Address> addresses;
+
+    @ManyToMany
+    @JoinTable(
+            name = "contact_mails",
+            joinColumns = @JoinColumn(name = "id_contact"),
+            inverseJoinColumns = @JoinColumn(name = "id_mail")
+    )
+    @ToString.Exclude
+    Set<Mail> mails;
 
     @ManyToOne
     private User user;
