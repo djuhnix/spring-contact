@@ -18,7 +18,7 @@ public class Mail {
     @Column(name="email")
     private String email;
 
-    @ManyToMany(mappedBy = "mails")
+    @ManyToOne
     @ToString.Exclude
-    Set<Contact> contacts;
+    private Contact contact;
 }
