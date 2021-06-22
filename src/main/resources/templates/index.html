@@ -42,7 +42,7 @@
                 <div class="container dropdown-menu">
                   <div class="row">
                     <div class="form-sec">
-                      <form th:action="@{/login}" method="post" role="form" th:object="${user}" class="contactForm">
+                      <form th:action="@{/login}" method="post" role="form" th:object="${user}">
                         <div class="col-md-4 form-group dropdown-item">
                           <input type="text" name="username" class="form-control text-field-box" id="username" placeholder="Username" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                           <div class="validation"></div>
@@ -133,7 +133,7 @@
     <div class="container">
       <div class="page-title text-center">
         <h1>Our Previous Works</h1>
-        <p>well ask our companies or other teachers<br>with nine projects on the last week I'm sure you can foind something interesting</p>
+        <p>well ask our companies or other teachers<br>with nine projects on the last week I'm sure you can find something interesting</p>
         <hr class="pg-titl-bdr-btm"/>
       </div>
       <div class="row">
