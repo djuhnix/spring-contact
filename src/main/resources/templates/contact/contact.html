@@ -14,7 +14,7 @@
         <div class="row come-in">
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each=contacts:${contact}">
                 <div class="panel panel-primary">
-                    <div class="panel-heading" th:text="${contact.user.username}"></div>
+                <div class="panel-heading" th:text="${contact.user.username}"></div>
                     <div class="panel-body">
                         <div class="dropdown">
                             <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${contact.user.username}"</a>
@@ -28,7 +28,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>

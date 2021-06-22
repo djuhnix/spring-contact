@@ -24,22 +24,21 @@ import java.util.regex.Pattern;
 public class ContactController {
     private final UserService userService;
     private final ContactRepository contactRepository;
-    private final MailRepository mailRepository;
 
     public ContactController(
             UserService userService,
-            ContactRepository contactRepository,
-            MailRepository mailRepository
+            ContactRepository contactRepository
     ) {
         this.userService = userService;
         this.contactRepository = contactRepository;
-        this.mailRepository = mailRepository;
     }
 
     @GetMapping("")
     public String contact(Model model) {
         List<Contact> contacts = contactRepository.findAllByUser(userService.getLoggedUser());
         model.addAttribute(contacts);
+        User user = userService.getLoggedUser();
+        model.addAttribute(user);
         return "contact/index";
     }
 
@@ -63,7 +62,7 @@ public class ContactController {
     }
 
     @PostMapping("/add")
-    public String addContact(@RequestBody Contact contact) {
+    public String addContact(@ModelAttribute("contact") Contact contact) {
         String root = "contact/add";
 
         if (contact != null) {
@@ -73,13 +72,13 @@ public class ContactController {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher;
 
-
+            /*
             for (Mail mail : contact.getMails()) {
                 matcher = pattern.matcher(mail.getEmail());
                 if (!matcher.matches()) {
                     b = false;
                 }
-            }
+            }*/
 
             regex = "^(?:(?:\\+|00)33|0)\\s*[1-9](?:[\\s.-]*\\d{2}){4}$";
             pattern = Pattern.compile(regex);
@@ -117,10 +116,14 @@ public class ContactController {
         return "contact/modify";
     }
 
-    @PostMapping
-    public String updateContact(@RequestBody Contact contact) {
-        contactRepository.save(contact);
-        return "redirect:/contact/"+contact.getId();
+    @PostMapping("/modify/{id}")
+    public String updateContact(@PathVariable long id, @RequestBody Contact contact) {
+        Contact c = contactRepository.findByIdAndUser(id, userService.getLoggedUser());
+        c.setLastName(contact.getLastName());
+        c.setFirstName(contact.getFirstName());
+        c.setBirthDate(contact.getBirthDate());
+        c.setPhoneNumber(contact.getPhoneNumber());
+        return "redirect:/contact/"+id;
     }
 
     @DeleteMapping("/{id}")

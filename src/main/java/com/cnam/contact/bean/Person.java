@@ -29,7 +29,7 @@ public class Person {
     protected String lastName;
 
     @Basic @Column(name = "birth_date")
-    protected Date birthDate;
+    protected String birthDate;
 
     @Basic @Column(name="gender")
     private String gender;
