@@ -1,6 +1,7 @@
 package com.cnam.contact.utils;
 
 import com.cnam.contact.bean.User;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,8 +32,8 @@ public class PasswordHashing {
         salt = Base64.getEncoder().encodeToString(saltBytes);
         // persist salt and hash or return them to delegate this task to other component
         // System.out.println(hashedPassword.length() + "\tpwd \t" + hashedPassword);
-        user.setPasswordHash(hashedPassword);
-        user.setSalt(salt);
+        user.setPassword(hashedPassword);
+        //user.setSalt(salt);
         //return user;
     }
 

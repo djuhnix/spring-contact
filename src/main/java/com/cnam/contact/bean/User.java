@@ -19,22 +19,26 @@ import java.util.*;
 @RequiredArgsConstructor
 @PasswordMatches
 public class User extends Person implements UserDetails {
-    @Transient
-    @NotNull @NotEmpty
-    private String password;
 
-    private String matchingPassword;
 
     @Basic @Column(name = "username", nullable = false, unique = true)
     @NotNull @NotEmpty
     private String username;
 
-    @Basic @Column(name = "password_hash", nullable = false)
-    private String passwordHash;
+    @Transient
+    @NotNull @NotEmpty
+    private String passwordPlain;
 
-    @Basic @Column(name = "salt", nullable = false)
+    @Basic @Column(name = "password", nullable = false)
+    private String password;
+
+    @Transient
+    @NotNull @NotEmpty
+    private String matchingPassword;
+/*
+    @Basic @Column(name = "salt")
     private String salt;
-
+*/
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
     private List<Contact> contacts;
@@ -65,7 +69,7 @@ public class User extends Person implements UserDetails {
 
     @Override
     public String getPassword() {
-        return passwordHash;
+        return password;
     }
 
     @Override
@@ -76,8 +80,7 @@ public class User extends Person implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (Role role :
-                roles) {
+        for (Role role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return Collections.unmodifiableList(authorities);
