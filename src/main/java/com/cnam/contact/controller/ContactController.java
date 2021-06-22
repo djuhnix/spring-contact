@@ -1,5 +1,6 @@
 package com.cnam.contact.controller;
 
+import com.cnam.contact.bean.Address;
 import com.cnam.contact.bean.Contact;
 import com.cnam.contact.bean.Mail;
 import com.cnam.contact.bean.User;
@@ -56,8 +57,7 @@ public class ContactController {
 
     @GetMapping("/add")
     public String formAddContact(Model model) {
-        Contact contact = new Contact();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", new Contact(new Mail(), new Address()));
         return "contact/add";
     }
 

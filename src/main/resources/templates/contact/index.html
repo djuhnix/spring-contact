@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/addressCard">
 </head>
 <body>
+<section class="section-margin">
     <button class="button-medium" name="add">
         <a th:href="@{/contact/add}">Ajouter</a>
     </button>
@@ -36,7 +37,7 @@
     <div th:fragment="contactCard">
         <div class="container-fluid">
             <div class="row come-in">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each="contacts:${contact}">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each="contact:${contacts}">
                     <div class="panel panel-primary">
                         <div class="panel-heading" th:text="${contact.firstName} ${contact.lastName}"></div>
                         <div class="panel-body">
@@ -56,5 +57,6 @@
             </div>
         </div>
     </div>
+</section>
 </body>
 </html>

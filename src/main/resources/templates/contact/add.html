@@ -30,7 +30,7 @@
           <form th:action="@{/contact/add}" method="post" role="form" th:object="${contact}" class="signup">
             <div class="col-md-4 form-group">
               <label for="lastName">Nom</label>
-              <input th:field="*{lastName}" type="text" name="lastName" class="form-control text-field-box" id="lastName" placeholder="Votre nom"  />
+              <input th:field="*{lastName}" type="text" name="lastName" class="form-control text-field-box" id="lastName" placeholder="Votre nom"/>
               <div class="validation"></div>
             </div>
 
@@ -42,7 +42,7 @@
 
             <div class="col-md-4 form-group">
               <label for="birthDate">Date de naissance</label>
-              <input th:field="*{birthDate}" type="date" name="birthDate" class="form-control text-field-box" id="birthDate" placeholder="Date de naissance" />
+              <input th:field="*{birthDate}" type="date" name="birthDate" class="form-control text-field-box" id="birthDate" placeholder="Date de naissance"/>
               <div class="validation"></div>
             </div>
 
@@ -60,48 +60,50 @@
 
             <div class="col-md-4 form-group">
               <label for="phoneNumber">Numéro de téléphone</label>
-              <input th:field="*{phoneNumber}" type="tel" name="phoneNumber" class="form-control text-field-box" id="phoneNumber" placeholder="Votre numéro" />
+              <input th:field="*{phoneNumber}" type="tel" name="phoneNumber" class="form-control text-field-box" id="phoneNumber" placeholder="phoneNumber" />
               <div class="validation"></div>
             </div>
 
-            <!--<div class="col-md-4 form-group">
-              <label for="email">Adresse e-mail</label>
-              <input th:field="*{email}" type="mail" name="email" class="form-control text-field-box" id="email" placeholder="email" />
-              <div class="validation"></div>
-            </div>-->
-
-            <!--
-            <div class="col-md-4 form-group">
-              <label for="numPath">Numéro de voie</label>
-              <input th:field="*{numPath}" type="text" name="numPath" class="form-control text-field-box" id="numPath" placeholder="Numéro de voie" />
-              <div class="validation"></div>
+            <div th:each="mail:${contact.mails}">
+              <div class="col-md-4 form-group">
+                <label for="email">Adresse e-mail</label>
+                <input th:field="${mail.email}" type="mail" name="email" class="form-control text-field-box" id="email" placeholder="email" />
+                <div class="validation"></div>
+              </div>
             </div>
+
+            <div th:each="address:${contact.addresses}">
+              <div class="col-md-4 form-group">
+                <label for="numPath">Numéro de voie</label>
+                <input th:field="${address.numPath}" type="number" name="numPath" class="form-control text-field-box" id="numPath" placeholder="numPath"/>
+                <div class="validation"></div>
+              </div>
 
             <div class="col-md-4 form-group">
               <label for="additional">Complément d'adresse</label>
-              <input th:field="*{additional}" type="text" name="additional" class="form-control text-field-box" id="additional" placeholder="additional" />
+              <input th:field="${address.additional}" type="text" name="additional" class="form-control text-field-box" id="additional" placeholder="additional" />
               <div class="validation"></div>
             </div>
 
             <div class="col-md-4 form-group">
               <label for="pathLabel">Libellé de la voie</label>
-              <input th:field="*{pathLabel}" type="text" name="pathLabel" class="form-control text-field-box" id="pathLabel" placeholder="pathLabel" />
+              <input th:field="${address.pathLabel}" type="text" name="pathLabel" class="form-control text-field-box" id="pathLabel" placeholder="pathLabel" />
               <div class="validation"></div>
             </div>
 
             <div class="col-md-4 form-group">
               <label for="city">Ville</label>
-              <input th:field="*{city}" type="text" name="city" class="form-control text-field-box" id="city" placeholder="city" />
+              <input th:field="${address.city}" type="text" name="city" class="form-control text-field-box" id="city" placeholder="city" />
               <div class="validation"></div>
             </div>
 
-            <div class="col-md-4 form-group">
-              <label for="postalCode">Code postal</label>
-              <input th:field="*{postalCode}" type="text" name="postalCode" class="form-control text-field-box" id="postalCode" placeholder="postalCode" />
-              <div class="validation"></div>
+              <div class="col-md-4 form-group">
+                <label for="postalCode">Code postal</label>
+                <input th:field="${address.postalCode}" type="text" name="postalCode" class="form-control text-field-box" id="postalCode" placeholder="postalCode" />
+                <div class="validation"></div>
+              </div>
             </div>
             <div class="col-md-12 form-group">
-            <-->
               <button class="button-medium" id="submit" type="submit" name="add">Ajouter</button>
             </div>
           </form>

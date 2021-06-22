@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,4 +34,17 @@ public class Contact extends Person {
 
     @ManyToOne
     private User user;
+
+    public Contact(Mail mail, Address address) {
+        mail.setEmail("");
+        address.setNumPath(0);
+        address.setAdditional("");
+        address.setPathLabel("");
+        address.setCity("");
+        address.setPostalCode("");
+        this.addresses = new ArrayList<Address>();
+        this.addresses.add(address);
+        this.mails = new ArrayList<Mail>();
+        this.mails.add(mail);
+    }
 }
