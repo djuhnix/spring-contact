@@ -27,14 +27,14 @@ public class ContactController {
     private ContactRepository contactRepository;
     private MailRepository mailRepository;
 
-    @GetMapping("/contact")
+    @GetMapping("/")
     public String contact(Model model) {
         List<Contact> contacts = contactRepository.findAllByUser(userService.getLoggedUser());
         model.addAttribute(contacts);
         return "contact/index";
     }
 
-    @GetMapping("/contact/{id}")
+    @GetMapping("/{id}")
     public String getContact(@PathVariable Long id, Model model) {
         Contact contact = contactRepository.findByIdAndUser(id, userService.getLoggedUser());
 
@@ -46,14 +46,14 @@ public class ContactController {
         return "contact/contact";
     }
 
-    @GetMapping("/contact/add")
+    @GetMapping("/add")
     public String formAddContact(Model model) {
         Contact contact = new Contact();
         model.addAttribute("contact", contact);
         return "contact/add";
     }
 
-    @PostMapping("/contact/add")
+    @PostMapping("/add")
     public String addContact(@RequestBody Contact contact) {
         String root = "contact/add";
 
@@ -101,7 +101,7 @@ public class ContactController {
          */
     }
 
-    @GetMapping("/contact/modify/{id}")
+    @GetMapping("/modify/{id}")
     public String modifyContact(@PathVariable long id, Model model) {
         Contact contact = contactRepository.findByIdAndUser(id, userService.getLoggedUser());
         model.addAttribute("contact", contact);
@@ -114,7 +114,7 @@ public class ContactController {
         return "redirect:/contact/"+contact.getId();
     }
 
-    @DeleteMapping("/contact/{id}")
+    @DeleteMapping("/{id}")
     public String removeContact(@PathVariable Long id) {
         contactRepository.delete(contactRepository.findByIdAndUser(id, userService.getLoggedUser()));
         return "contact/index";
