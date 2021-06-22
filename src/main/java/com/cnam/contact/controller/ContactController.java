@@ -22,10 +22,19 @@ import java.util.regex.Pattern;
 @Controller
 @RequestMapping("/contact")
 public class ContactController {
-    @Autowired
-    private UserService userService;
-    private ContactRepository contactRepository;
-    private MailRepository mailRepository;
+    private final UserService userService;
+    private final ContactRepository contactRepository;
+    private final MailRepository mailRepository;
+
+    public ContactController(
+            UserService userService,
+            ContactRepository contactRepository,
+            MailRepository mailRepository
+    ) {
+        this.userService = userService;
+        this.contactRepository = contactRepository;
+        this.mailRepository = mailRepository;
+    }
 
     @GetMapping("/")
     public String contact(Model model) {
