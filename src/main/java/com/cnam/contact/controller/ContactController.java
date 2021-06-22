@@ -36,7 +36,7 @@ public class ContactController {
         this.mailRepository = mailRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String contact(Model model) {
         List<Contact> contacts = contactRepository.findAllByUser(userService.getLoggedUser());
         model.addAttribute(contacts);

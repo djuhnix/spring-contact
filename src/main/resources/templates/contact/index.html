@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<html lang="en"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Contact</title>
+    <title>Liste des contacts</title>
+    <link rel="stylesheet" href="css/addressCard">
 </head>
 <body>
-    <h1>Liste des contacts</h1>
-    <input type="submit" value="Ajouter">
-    <div>
-        <ul id="user-contacts">
-            <li th:each="contacts:${contact}"></li>
-        </ul>
+    <div th:fragment="contactCard">
+        <div class="container-fluid">
+            <div class="row come-in">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each="contacts:${contact}">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" th:text="${contact.user.username}"></div>
+                        <div class="panel-body">
+                            <div class="dropdown">
+                                <div class="container dropdown-menu">
+                                    <div class="row">
+                                        <div class="form-sec">
+                                            <p th:text="${contact.phoneNumber}"></p>
+                                            <p th:text="${contact.firstName}"></p>
+                                            <p th:text="${contact.lastName}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
