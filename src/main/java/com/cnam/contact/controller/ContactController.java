@@ -71,7 +71,11 @@ public class ContactController {
     }
 
     @PostMapping("/add")
-    public String addContact(@ModelAttribute("contact") Contact contact) {
+    public String addContact(
+            @ModelAttribute("contact") Contact contact,
+            BindingResult result,
+            Model model
+    ) {
         String root = "contact/add";
         if (result.hasErrors()) {
             model.addAttribute("message", "Erreur dans le formulaire.");
