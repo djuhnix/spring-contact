@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Contact</title>
+</head>
+<body>
+    <h1>Liste des contacts</h1>
+    <input type="submit" value="Ajouter">
+    <div>
+        <ul id="user-contacts">
+            <li th:each="contact : ${contacts}"></li>
+        </ul>
+    </div>
+</body>
+</html>
