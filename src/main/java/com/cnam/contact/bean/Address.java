@@ -2,7 +2,7 @@ package com.cnam.contact.bean;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name="Address")
 @Getter @Setter @ToString
@@ -28,5 +28,5 @@ public class Address {
 
     @ManyToMany(mappedBy = "addresses")
     @ToString.Exclude
-    Set<Contact> contacts;
+    List<Contact> contacts;
 }

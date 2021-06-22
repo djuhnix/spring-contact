@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Set;
+import java.util.List;
 
 @Controller
 public class AddressController {
@@ -24,11 +24,11 @@ public class AddressController {
 
     @GetMapping("/contact/{id}/address")
     public String getAddress(
-            @ModelAttribute(name = "addresses") Set<Address> addressSet,
+            @ModelAttribute(name = "addresses") List<Address> addresses,
             @PathVariable(name = "id") Long id
     ) {
         Contact contact = contactRepository.findByIdAndUser(id, userService.getLoggedUser());
-        addressSet = addressRepository.findByContacts(Set.of(contact));
+        addresses = addressRepository.findByContact(contact);
         return "address/index";
     }
 }
