@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: layout(~{::title}, ~{::section})}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Contact</title>
+</head>
+<body>
+    <!--
+    <section th:replace="~{framents/cta_title :: cta_1 ('Inscription', 'Entrer vos informations')}">
+    </section>
+    -->
+    <section class="section-margin">
+        <!--REGISTRATION START-->
+        <div id="contact" >
+            <div class="container">
+                <div class="row">
+                    <div class="page-title text-center">
+                        <h1>Connection</h1>
+                        <p>Entrer vos informations. </p>
+                        <hr class="pg-titl-bdr-btm"/>
+                    </div>
+                    <div id="successmessage">Demande de connexion envoyé!</div>
+                    <div id="errormessage" th:text="${message}"></div>
+
+                    <div class="form-sec">
+                        <form th:action="@{/login}" method="post" role="form" th:object="${user}" class="signup">
+                            <div class="col-md-4 form-group">
+                                <label for="username">Nom d'utilisateur</label>
+                                <input type="text" class="form-control text-field-box" name="username" id="username" placeholder="Votre nom d'utilisateur" />
+
+                                <div class="validation"></div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label for="password">Mot de passe</label>
+                                <input th:field="*{password}" type="password" class="form-control text-field-box" name="password" id="password" placeholder="Votre mot de passe" data-rule="minlen:8" data-msg="Au moins 8 lettres dans votre mot de passe." />
+
+                                <div class="validation"></div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button class="button-medium" id="submit" type="submit" name="login">Se connecter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--REGISTRATION END-->
+    </section>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout (title, content)"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title th:replace="${title}">Contact</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/slick-team-slider.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- =======================================================
+      Theme Name: Tempo
+      Theme URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
+      Author: BootstrapMade.com
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+</head>
+<body>
+
+
+<div th:replace="framents/header"></div>
+
+<div th:replace="${content}">
+    <p>Layout content</p>
+</div>
+
+<div th:replace="framents/footer"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/slick.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script src="contactform/contactform.js"></script>
+</body>
+</html>

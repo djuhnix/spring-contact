@@ -27,6 +27,11 @@ Header
 {
 	padding: 40px 0px;
 }
+
+.section-margin
+{
+	margin: 80px 0px;
+}
 .main-navigation
 {
     border-bottom: 1px solid #eee;
@@ -440,6 +445,16 @@ margin-top: 5px;
 }
 
 #sendmessage {
+    color: green;
+    border:1px solid green;
+    display:none;
+    text-align:center;
+    padding:15px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+#successmessage {
     color: green;
     border:1px solid green;
     display:none;
