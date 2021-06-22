@@ -15,12 +15,19 @@ import java.util.List;
 
 @Controller
 public class AddressController {
-    @Autowired
-    private AddressRepository addressRepository;
-    @Autowired
-    private ContactRepository contactRepository;
-    @Autowired
-    private UserService userService;
+    private final AddressRepository addressRepository;
+    private final ContactRepository contactRepository;
+    private final UserService userService;
+
+    public AddressController(
+            AddressRepository addressRepository,
+            ContactRepository contactRepository,
+            UserService userService
+    ) {
+        this.addressRepository = addressRepository;
+        this.contactRepository = contactRepository;
+        this.userService = userService;
+    }
 
     @GetMapping("/contact/{id}/address")
     public String getAddress(
@@ -28,7 +35,7 @@ public class AddressController {
             @PathVariable(name = "id") Long id
     ) {
         Contact contact = contactRepository.findByIdAndUser(id, userService.getLoggedUser());
-        addresses = addressRepository.findByContact(contact);
+        addressSet = addressRepository.findByContacts(contact);
         return "address/index";
     }
 }
