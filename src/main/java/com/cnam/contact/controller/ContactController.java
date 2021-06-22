@@ -1,18 +1,14 @@
 package com.cnam.contact.controller;
 
+import com.cnam.contact.bean.Address;
 import com.cnam.contact.bean.Contact;
 import com.cnam.contact.bean.Mail;
 import com.cnam.contact.bean.User;
 import com.cnam.contact.repository.ContactRepository;
-import com.cnam.contact.repository.MailRepository;
 import com.cnam.contact.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
-/*import org.springframework.http.ResponseEntity;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;*/
 
 import java.net.URI;
 import java.util.List;
@@ -56,28 +52,28 @@ public class ContactController {
 
     @GetMapping("/add")
     public String formAddContact(Model model) {
-        Contact contact = new Contact();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", new Contact());
+        //model.addAttribute("contact", new Mail());
+        //model.addAttribute("contact", new Address());
         return "contact/add";
     }
 
     @PostMapping("/add")
-    public String addContact(@ModelAttribute("contact") Contact contact) {
+    public String addContact(@ModelAttribute("contact") Contact contact) {//,
+                             //@ModelAttribute("mail") Mail mail,
+                             //@ModelAttribute("address") Address address) {
         String root = "contact/add";
 
-        if (contact != null) {
+        if (contact != null) { //&& mail != null && address != null) {
             boolean b = true;
 
             String regex = "\\b[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b"; //"^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher;
 
-            /*
-            for (Mail mail : contact.getMails()) {
-                matcher = pattern.matcher(mail.getEmail());
-                if (!matcher.matches()) {
-                    b = false;
-                }
+            /*for (Mail m : mail.()) {
+            matcher = pattern.matcher(mail.getEmail());
+            if (!matcher.matches()) {b = false;}
             }*/
 
             regex = "^(?:(?:\\+|00)33|0)\\s*[1-9](?:[\\s.-]*\\d{2}){4}$";

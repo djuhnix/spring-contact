@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/addressCard">
 </head>
 <body>
+    <input type="button"
     <div class="container-fluid">
         <div class="row come-in">
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -18,9 +19,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="form-sec">
-                                    <p th:text=" first name ${user.phoneNumber}"></p>
-                                    <p th:text="last name ${user.firstName}"></p>
-                                    <p th:text="${user.lastName}"></p>
+                                    <p th:text="${user.username}"></p>
+                                    <!--<p th:text="${user.lastName}"></p>-->
+                                    <!--<p th:text="${user.phoneNumber}"></p>-->
                                 </div>
                             </div>
                         </div>
