@@ -1,6 +1,9 @@
 package com.cnam.contact.controller;
 
+import com.cnam.contact.bean.User;
+import org.apache.tomcat.util.modeler.BaseAttributeFilter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -11,5 +14,8 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String index(){return "index";}
+    public String index(Model model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "index";}
 }
