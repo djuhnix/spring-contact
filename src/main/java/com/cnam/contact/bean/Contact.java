@@ -27,6 +27,15 @@ public class Contact extends Person {
     @ToString.Exclude
     Set<Address> addresses;
 
+    @ManyToMany
+    @JoinTable(
+            name = "contact_mails",
+            joinColumns = @JoinColumn(name = "id_contact"),
+            inverseJoinColumns = @JoinColumn(name = "id_mail")
+    )
+    @ToString.Exclude
+    Set<Mail> mails;
+
     @ManyToOne
     private User user;
 }
