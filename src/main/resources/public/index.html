@@ -46,13 +46,13 @@
                 <div class="container dropdown-menu">
                   <div class="row">
                     <div class="form-sec">
-                      <form action="" method="post" role="form" class="contactForm">
+                      <form th:action="@{/login}" method="post" role="form" th:object="${user}" class="contactForm">
                         <div class="col-md-4 form-group dropdown-item">
                           <input type="text" name="username" class="form-control text-field-box" id="username" placeholder="Username" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                           <div class="validation"></div>
                         </div>
                         <div class="col-md-4 form-group dropdown-item">
-                          <input type="password" name="password" class="form-control text-field-box" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input th:field="*{password}" type="password" name="password" class="form-control text-field-box" id="password" placeholder="Password" data-rule="minlen:8" data-msg="Please enter at least 8 characters" />
                           <div class="validation"></div>
                           <button class="button-medium" id="login" type="submit" name="contact">log in</button>
                         </div>
