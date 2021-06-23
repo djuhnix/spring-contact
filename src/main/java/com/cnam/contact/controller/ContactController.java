@@ -4,6 +4,7 @@ import com.cnam.contact.bean.Address;
 import com.cnam.contact.bean.Contact;
 import com.cnam.contact.bean.Mail;
 import com.cnam.contact.bean.User;
+import com.cnam.contact.repository.AddressRepository;
 import com.cnam.contact.repository.ContactRepository;
 import com.cnam.contact.repository.MailRepository;
 import com.cnam.contact.service.UserService;
@@ -25,18 +26,24 @@ import java.util.regex.Pattern;
 public class ContactController {
     private final UserService userService;
     private final ContactRepository contactRepository;
+    private final MailRepository mailRepository;
+    private final AddressRepository addressRepository;
 
     public ContactController(
             UserService userService,
-            ContactRepository contactRepository
+            ContactRepository contactRepository,
+            MailRepository mailRepository,
+            AddressRepository addressRepository
     ) {
         this.userService = userService;
         this.contactRepository = contactRepository;
+        this.mailRepository = mailRepository;
+        this.addressRepository = addressRepository;
     }
 
     @GetMapping("")
     public String contact(Model model) {
-        List<Contact> contacts = contactRepository.findAllByUser(userService.getLoggedUser());
+        List<Contact> contacts = contactRepository.getAllByUser(userService.getLoggedUser());
         model.addAttribute(contacts);
         User user = userService.getLoggedUser();
         model.addAttribute(user);
@@ -72,8 +79,7 @@ public class ContactController {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher;
 
-            /*
-            for (Mail mail : contact.getMails()) {
+            /*for (Mail mail : contact.getMails()) {
                 matcher = pattern.matcher(mail.getEmail());
                 if (!matcher.matches()) {
                     b = false;
@@ -90,7 +96,16 @@ public class ContactController {
             if (b) {
                 contact.setUser(userService.getLoggedUser());
                 contactRepository.save(contact);
-                root = "redirect:/contact/" + contact.getId();
+
+                /*for (Mail mail: contact.getMails()) {
+                    mailRepository.save(mail);
+                }
+
+                for (Address address: contact.getAddresses()) {
+                    addressRepository.save(address);
+                }*/
+
+                root = "redirect:/contact/"+contact.getId();
             }
         }
 

@@ -14,6 +14,18 @@
     <button class="button-medium" name="add">
         <a th:href="@{/contact/add}">Ajouter</a>
     </button>
+    <!--<h1 th:text="${user.username}"></h1>
+    <h2 th:text="${user.firstName}"></h2>
+    <h2 th:text="${user.lastName}"></h2>
+
+    <div th:each="contact:${contacts}">
+        <div th:text="${contact.firstName} ${contact.lastName}">
+            <div class="form-sec">
+                <p th:text="${contact.phoneNumber}"></p>
+                <p th:text="${contact.birthDate}"></p>
+            </div>
+        </div>
+    </div>-->
 
     <div class="container-fluid">
         <div class="row come-in">
@@ -34,7 +46,8 @@
             </div>
         </div>
     </div>
-    <div th:fragment="contactCard">
+
+    <!--<div th:fragment="contactCard">
         <div class="container-fluid">
             <div class="row come-in">
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each="contact:${contacts}">
@@ -56,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </section>
 </body>
 </html>

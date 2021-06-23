@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface ContactRepository extends JpaRepository<Contact, Long> {
-    List<Contact> findAllByUser(User user);
+    List<Contact> getAllByUser(User user);
     Contact findByIdAndUser(Long id, User user);
 }

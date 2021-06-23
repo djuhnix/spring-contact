@@ -37,6 +37,8 @@ public class Contact extends Person {
 
     public Contact(Mail mail, Address address) {
         mail.setEmail("");
+        this.mails = new ArrayList<Mail>();
+        this.mails.add(mail);
         address.setNumPath(0);
         address.setAdditional("");
         address.setPathLabel("");
@@ -44,7 +46,5 @@ public class Contact extends Person {
         address.setPostalCode("");
         this.addresses = new ArrayList<Address>();
         this.addresses.add(address);
-        this.mails = new ArrayList<Mail>();
-        this.mails.add(mail);
     }
 }
