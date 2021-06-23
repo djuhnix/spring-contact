@@ -24,8 +24,9 @@
         </div>
 
         <div id="successmessage">Contact ajouté !</div>
+        <!--
         <div id="errormessage" th:text="${message}"></div>
-
+        -->
         <div class="form-sec">
           <form th:action="@{/contact/add}" method="post" role="form" th:object="${contact}" class="signup">
             <div class="col-md-4 form-group">
@@ -71,8 +72,7 @@
                 <div class="validation"></div>
               </div>
             </div>
-
-            <!--<div th:each="address:${contact.addresses}">
+          <!--<div th:each="address:${contact.addresses}">
               <div class="col-md-4 form-group">
                 <label for="numPath">Numéro de voie</label>
                 <input th:field="${address.numPath}" type="number" name="numPath" class="form-control text-field-box" id="numPath" placeholder="numPath"/>
@@ -105,9 +105,10 @@
             </div>
             -->
             <div class="col-md-12 form-group">
-              <button class="button-medium" id="submit" type="submit" name="add">Ajouter</button>
+              <button class="button-medium" id="submit-addess" type="submit" name="add-address">Ajouter Contact</button>
             </div>
           </form>
+
         </div>
       </div>
     </div>

@@ -25,7 +25,9 @@
 <body>
 
 
-<div th:replace="framents/header"></div>
+<div th:replace="framents/header :: header (~{::li})">
+    <li></li>
+</div>
 
 <div th:replace="${content}">
     <p>Layout content</p>

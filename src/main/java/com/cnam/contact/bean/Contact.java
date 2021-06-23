@@ -22,7 +22,7 @@ public class Contact extends Person {
     @NotNull @NotEmpty
     private String phoneNumber;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "contact_address",
             joinColumns = @JoinColumn(name = "id_contact"),
@@ -31,7 +31,7 @@ public class Contact extends Person {
     @ToString.Exclude
     List<Address> addresses;
 
-    @OneToMany(mappedBy = "contact")
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.PERSIST)
     @ToString.Exclude
     List<Mail> mails;
 

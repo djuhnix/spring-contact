@@ -46,7 +46,7 @@ public class ContactController {
     @GetMapping
     public String contact(Model model) {
         List<Contact> contacts = contactRepository.getAllByUser(userService.getLoggedUser());
-        model.addAttribute(contacts);
+        model.addAttribute("contacts", contacts);
         User user = userService.getLoggedUser();
         model.addAttribute(user);
         return "contact/index";
@@ -73,6 +73,8 @@ public class ContactController {
     @PostMapping("/add")
     public String addContact(
             @ModelAttribute("contact") Contact contact,
+            //@ModelAttribute("mail") Mail mail,
+            //@ModelAttribute("address") Address address,
             BindingResult result,
             Model model
     ) {
@@ -154,8 +156,18 @@ public class ContactController {
         return "redirect:/contact/"+id;
     }
 
+    @RequestMapping("/remove/{id}")
+    public String removeContact(@PathVariable Long id, Model model) {
+        contactRepository.delete(contactRepository.findByIdAndUser(id, userService.getLoggedUser()));
+        List<Contact> contacts = contactRepository.getAllByUser(userService.getLoggedUser());
+        model.addAttribute("contacts", contacts);
+        User user = userService.getLoggedUser();
+        model.addAttribute(user);
+        return "redirect:/contact";
+    }
+
     @DeleteMapping("/{id}")
-    public String removeContact(@PathVariable Long id) {
+    public String deleteContact(@PathVariable Long id) {
         contactRepository.delete(contactRepository.findByIdAndUser(id, userService.getLoggedUser()));
         return "contact/index";
     }

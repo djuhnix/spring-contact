@@ -22,17 +22,23 @@
           <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('home')) ? 'selected' : ''}">
             <a th:href="@{/}">Home</a>
           </li>
-          <th:block th:replace="${links}">
+          <th:block th:if="${links} != null" th:replace="${links}">
 
           </th:block>
           <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('address')) ? 'selected' : ''}">
-            <a th:href="@{/address}">Adresses</a>
+            <a th:href="@{/address}">Addresses</a>
           </li>
           <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'selected' : ''}">
             <a th:href="@{/contact}">Contacts</a>
           </li>
-          <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'selected' : ''}">
-            <a th:href="@{/logout}">Déconnection</a>
+          <li >
+            <a th:href="@{/login}">Login</a>
+          </li>
+          <li>
+            <a th:href="@{/registration}">Sign up</a>
+          </li>
+          <li>
+            <a th:href="@{/logout}">Logout</a>
           </li>
         </ul>
       </div>
