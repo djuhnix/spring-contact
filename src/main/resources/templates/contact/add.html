@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: layout(~{::title}, ~{::section})}"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>Ajouter Contact</title>
+</head>
+<body>
+<!--
+<section th:replace="~{framents/cta_title :: cta_1 ('Inscription', 'Entrer vos informations')}">
+</section>
+-->
+<section class="section-margin">
+  <!--REGISTRATION START-->
+  <div id="contact" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="page-title text-center">
+          <h1>Ajouter un contact</h1>
+          <p>Veuillez saisir les informations suivantes :</p>
+          <hr class="pg-titl-bdr-btm"/>
+        </div>
+
+        <div id="successmessage">Contact ajouté !</div>
+        <!--
+        <div id="errormessage" th:text="${message}"></div>
+        -->
+        <div class="form-sec">
+          <form th:action="@{/contact/add}" method="post" role="form" th:object="${contact}" class="signup">
+            <div class="col-md-4 form-group">
+              <label for="lastName">Nom</label>
+              <input th:field="*{lastName}" type="text" name="lastName" class="form-control text-field-box" id="lastName" placeholder="Votre nom"/>
+              <div class="validation"></div>
+            </div>
+
+            <div class="col-md-4 form-group">
+              <label for="firstName">Prénom</label>
+              <input th:field="*{firstName}" type="text" name="firstName" class="form-control text-field-box" id="firstName" placeholder="Votre prénom" />
+              <div class="validation"></div>
+            </div>
+
+            <div class="col-md-4 form-group">
+              <label for="birthDate">Date de naissance</label>
+              <input th:field="*{birthDate}" type="date" name="birthDate" class="form-control text-field-box" id="birthDate" placeholder="Date de naissance"/>
+              <div class="validation"></div>
+            </div>
+
+            <!--<div class="col-md-4 form-group">
+              <label>Genre :</label>
+              <label for="homme">Homme</label>
+              <input th:field="*{gender}" type="radio" name="gender" id="homme" value="homme"/>
+              <label for="femme">Femme</label>
+              <input th:field="*{gender}" type="radio" name="gender" id="femme" value="femme"/>
+              <label for="autre">Autre</label>
+              <input th:field="*{gender}" type="radio" name="gender" id="autre" value="autre"/>
+              <div class="validation"></div>
+            </div>
+            -->
+
+            <div class="col-md-4 form-group">
+              <label for="phoneNumber">Numéro de téléphone</label>
+              <input th:field="*{phoneNumber}" type="tel" name="phoneNumber" class="form-control text-field-box" id="phoneNumber" placeholder="phoneNumber" />
+              <div class="validation"></div>
+            </div>
+
+            <div th:each="mail:${contact.mails}">
+              <div class="col-md-4 form-group">
+                <label for="email">Adresse e-mail</label>
+                <input th:field="${mail.email}" type="mail" name="email" class="form-control text-field-box" id="email" placeholder="email" />
+                <div class="validation"></div>
+              </div>
+            </div>
+          <!--<div th:each="address:${contact.addresses}">
+              <div class="col-md-4 form-group">
+                <label for="numPath">Numéro de voie</label>
+                <input th:field="${address.numPath}" type="number" name="numPath" class="form-control text-field-box" id="numPath" placeholder="numPath"/>
+                <div class="validation"></div>
+              </div>
+
+            <div class="col-md-4 form-group">
+              <label for="additional">Complément d'adresse</label>
+              <input th:field="${address.additional}" type="text" name="additional" class="form-control text-field-box" id="additional" placeholder="additional" />
+              <div class="validation"></div>
+            </div>
+
+            <div class="col-md-4 form-group">
+              <label for="pathLabel">Libellé de la voie</label>
+              <input th:field="${address.pathLabel}" type="text" name="pathLabel" class="form-control text-field-box" id="pathLabel" placeholder="pathLabel" />
+              <div class="validation"></div>
+            </div>
+
+            <div class="col-md-4 form-group">
+              <label for="city">Ville</label>
+              <input th:field="${address.city}" type="text" name="city" class="form-control text-field-box" id="city" placeholder="city" />
+              <div class="validation"></div>
+            </div>
+
+              <div class="col-md-4 form-group">
+                <label for="postalCode">Code postal</label>
+                <input th:field="${address.postalCode}" type="text" name="postalCode" class="form-control text-field-box" id="postalCode" placeholder="postalCode" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            -->
+            <div class="col-md-12 form-group">
+              <button class="button-medium" id="submit-addess" type="submit" name="add-address">Ajouter Contact</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--ADD CONTACT END-->
+</section>
+</body>
+</html>

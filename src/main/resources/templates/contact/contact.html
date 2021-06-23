@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: layout(~{::title}, ~{::section})}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des contacts</title>
+    <link rel="stylesheet" href="css/addressCard">
+</head>
+<body>
+<section class="section-margin">
+    <div class="container-fluid">
+        <div class="row come-in">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" th:text="${contact.user.username}"></div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-sec">
+                                    <p th:text="${contact.firstName}">Prénom</p>
+                                    <p th:text="${contact.lastName}"></p>
+                                    <p th:text="${contact.birthDate}"></p>
+                                    <p th:text="${contact.phoneNumber}"></p>
+                                    <div th:each="mail:${contact.mails}">
+                                        <p th:text="${mail}"></p>
+                                    </div>
+                                    <div th:each="address:${contact.addresses}">
+                                        <p th:text="${address.numPath}"></p>
+                                        <p th:text="${address.additional}"></p>
+                                        <p th:text="${address.pathLabel}"></p>
+                                        <p th:text="${address.city}"></p>
+                                        <p th:text="${address.postalCode}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="button-medium" name="modify">
+        <a th:href="@{'/contact/modify/'+${contact.id}}" >Modifier</a>
+    </button>
+    <button class="button-medium" name="add">
+        <a th:href="@{'/contact/remove/' + ${contact.id}}">Supprimer</a>
+    </button>
+</section>
+</body>
+</html>

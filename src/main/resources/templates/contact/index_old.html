@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: layout(~{::title}, ~{::section})}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des contacts</title>
+    <link rel="stylesheet" href="css/addressCard">
+</head>
+<body>
+<section class="section-margin">
+    <button class="button-medium" name="add">
+        <a th:href="@{/contact/add}">Ajouter</a>
+    </button>
+
+    <div class="container-fluid">
+        <div class="row come-in">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" th:text="${user.username}"></div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-sec">
+                                    <p th:text="${user.firstName}"></p>
+                                    <p th:text="${user.lastName}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="~{framents/contactCard :: contactCard2 (contacts)}">
+
+    </div>
+</section>
+</body>
+</html>

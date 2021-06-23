@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/addressCard}">
+</head>
+<body>
+<div th:fragment="addressCard">
+    <div class="container-fluid">
+        <div class="row come-in">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" th:each="addresses:${address}">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" th:text="${address.line}"></div>
+                    <div class="panel-body">
+                        <p th:text="${address.complement}"></p>
+                        <p th:text="${address.postcode}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

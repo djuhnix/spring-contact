@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head><title>Banner</title></head>
+<body>
+<!--BANNER START-->
+<div th:fragment="banner (title, subtitle, link, linkText)" id="banner" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="small" th:text="${title}">Welcome To <span class="bold">Tempo</span></h1>
+                <p class="big" th:text="${subtitle}">Multipurpose HTML5 Bootstrap template.</p>
+
+                <a th:if="${link} != null" th:href="@{link}" th:text="${linkText}" class="btn btn-banner">Learn More<i class="fa fa-send"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--BANNER END-->
+</body>
+</html>

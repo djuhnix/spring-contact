@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      class=" js no-touch"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head><title>Header</title></head>
+<body>
+<!--HEADER START-->
+<div th:fragment="header(links)" class="main-navigation navbar-fixed-top">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Contact</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('home')) ? 'selected' : ''}">
+            <a th:href="@{/}">Home</a>
+          </li>
+          <th:block th:if="${links} != null" th:replace="${links}">
+
+          </th:block>
+          <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('address')) ? 'selected' : ''}">
+            <a th:href="@{/address}">Addresses</a>
+          </li>
+          <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'selected' : ''}">
+            <a th:href="@{/contact}">Contacts</a>
+          </li>
+          <li >
+            <a th:href="@{/login}">Login</a>
+          </li>
+          <li>
+            <a th:href="@{/registration}">Sign up</a>
+          </li>
+          <li>
+            <a th:href="@{/logout}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<!--HEADER END-->
+</body>
+</html>
